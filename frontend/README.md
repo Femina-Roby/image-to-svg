@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+Image to SVG Converter · Powered by AI
+Turn bitmap images (like PNG/JPG) into high-quality SVG vector graphics using Hugging Face’s StarVector model—all inside a beautifully responsive React app with a FastAPI backend.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Features
+- GraphQL API built with FastAPI + Ariadne
+- Live SVG preview after uploading
+- Downloadable SVG output
+- Dockerized frontend + backend with docker-compose
+- AI-powered vectorization via StarVector (Hugging Face)
 
-## Available Scripts
+Tech Stack
+| Frontend | Backend | AI | DevOps | 
+| React + Apollo | FastAPI + Ariadne | StarVector | Docker + Compose | 
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Getting Started
+1. Clone the repo
+git clone https://github.com/Femina-Roby/image-to-svg.git
+cd image-to-svg
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+2. Add your Hugging Face API key
+In backend/.env:
+HF_API_KEY=your_huggingface_key_here
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+Never commit this key—.env is in .gitignore.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Run Locally with Docker Compose
+docker-compose up --build
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+- Backend: http://localhost:8000/graphql
+- Frontend: http://localhost:3000
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Demo
+Try uploading a logo or sketch. The app will:
+- Send the image to the backend
+- Vectorize via Hugging Face’s StarVector API
+- Return a clean, scalable SVG preview
+- Let you download it with one click
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Development Notes
+- You can swap in svgtrace or other local converters as fallback
+- Uses GraphQL Upload scalar for file input
+- Backend supports both async & thread-pooled calls
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Contributing
+Feel free to fork, improve, and open pull requests! Suggestions for better vectorization logic or UI polish are always welcome.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
