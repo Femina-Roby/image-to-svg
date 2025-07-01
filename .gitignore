@@ -37,3 +37,7 @@ img2svg/
 # System files
 .DS_Store
 Thumbs.db
+
+*.log
+.env
+*.env.*
